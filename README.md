@@ -4,6 +4,8 @@ self-controlled method of accessing GeoLocation data for a given IP address.
 
 GeoIP uses GeoLite2 data created by MaxMind, available [here](http://www.maxmind.com).
 
+[![Build Status](https://travis-ci.org/dominionenterprises/GeoIP.svg?branch=master)](https://travis-ci.org/dominionenterprises/GeoIP)
+
 ## Requirements
 * **[Composer](https://getcomposer.org)**
 * **cURL**
