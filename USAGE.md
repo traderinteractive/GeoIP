@@ -49,8 +49,8 @@ That request should return a response that looks like this:
     "cityName": "Mountain View",
     "postalCode": null,
     "metroCode": 807,
-    "lat": 37.386,
-    "lon": -122.0838,
+    "latitude": 37.386,
+    "longitude": -122.0838,
     "timeZone": "America\/Los_Angeles",
     "query" : {
         "ip": "8.8.8.8",
