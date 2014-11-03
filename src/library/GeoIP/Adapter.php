@@ -45,8 +45,8 @@ class Adapter
         $data['cityName'] = $record->city->name;
         $data['postalCode'] = $record->postal->code;
         $data['metroCode'] = $record->location->metroCode;
-        $data['lat'] = $record->location->latitude;
-        $data['lon'] = $record->location->longitude;
+        $data['latitude'] = $record->location->latitude;
+        $data['longitude'] = $record->location->longitude;
         $data['timeZone'] = $record->location->timeZone;
         $data['query']['ip'] = $ip;
         return $data;
