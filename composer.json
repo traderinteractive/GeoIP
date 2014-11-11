@@ -1,5 +1,5 @@
 {
-    "name": "dominionenterprises/GeoIP",
+    "name": "dominionenterprises/geoip",
     "type": "library",
     "description": "A self-controlled, self-hosted GeoLocation lookup service.",
     "homepage": "http://github.com/dominionenterprises/GeoIP",
