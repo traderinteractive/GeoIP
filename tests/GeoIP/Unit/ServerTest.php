@@ -30,6 +30,16 @@ class ServerTest extends TestCase
     public function testGetQueryMethod()
     {
         $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
+        $_GET['ip'] = '8.8.8.8';
+        $server = new Server($this->getAdapter());
+        $this->assertSame('get', $server->getQueryMethod());
+    }
+    /**
+     * @runInSeparateProcess
+     */
+    public function testPostQueryMethod()
+    {
+        $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
         $_POST['ip'] = '8.8.8.8';
         $server = new Server($this->getAdapter());
         $this->assertSame('post', $server->getQueryMethod());
