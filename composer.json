@@ -18,7 +18,7 @@
     },
     "require-dev": {
         "internations/http-mock": "dev-master",
-        "phpunit/phpunit": "3.7.14",
+        "phpunit/phpunit": "~5.0",
         "squizlabs/php_codesniffer": "1.*"
     },
     "autoload": {
