@@ -21,6 +21,7 @@ class ServerTest extends TestCase
         $ip = '127.0.0.1';
         $_SERVER['REMOTE_ADDR'] = $ip;
         $server = new Server($this->getAdapter());
+        
         $this->assertSame($ip, $server->getIp());
     }
 
@@ -32,8 +33,10 @@ class ServerTest extends TestCase
         $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
         $_GET['ip'] = '8.8.8.8';
         $server = new Server($this->getAdapter());
+        
         $this->assertSame('get', $server->getQueryMethod());
     }
+    
     /**
      * @runInSeparateProcess
      */
@@ -42,6 +45,7 @@ class ServerTest extends TestCase
         $_SERVER['REMOTE_ADDR'] = '127.0.0.1';
         $_POST['ip'] = '8.8.8.8';
         $server = new Server($this->getAdapter());
+        
         $this->assertSame('post', $server->getQueryMethod());
     }
 }

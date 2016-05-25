@@ -31,6 +31,7 @@ class Server
     public function __construct(Adapter $adapter)
     {
         $this->adapter = $adapter;
+
         $this->parse();
     }
 
@@ -40,6 +41,7 @@ class Server
     public function parse()
     {
         $this->ip = isset($_REQUEST['ip']) ? $_REQUEST['ip'] : $_SERVER['REMOTE_ADDR'];
+
         if (isset($_POST['ip'])) {
             $this->queryMethod = 'post';
         } elseif (isset($_GET['ip'])) {
@@ -59,6 +61,7 @@ class Server
             $this->response['error'] = true;
             $this->response['errorDetail'] = $ex->getMessage();
         }
+
         $this->respond();
     }
 
@@ -68,12 +71,17 @@ class Server
     public function respond()
     {
         ob_start();
+
         $this->buildHeaders();
+
         echo json_encode($this->getResponse(), JSON_PRETTY_PRINT);
+
         $output = ob_get_clean();
+
         foreach ($this->getHeaders() as $header) {
             header($header);
         }
+
         echo $output;
     }
 
@@ -83,9 +91,11 @@ class Server
     public function buildHeaders()
     {
         $response = $this->getResponse();
+
         if (isset($response['error']) && $response['error']) {
             $this->headers[] = 'HTTP/1.0 400 Bad Request';
         }
+
         $this->headers = array_unique($this->headers);
     }
 

@@ -29,5 +29,7 @@ try {
 // instantiate and run the server
 $adapter = new \TravelMediaGroup\GeoIP\Adapter($reader);
 $server = new \TravelMediaGroup\GeoIP\Server($adapter);
+
 $server->run();
+
 exit;

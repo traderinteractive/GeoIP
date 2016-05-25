@@ -29,6 +29,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
             $methods = ['getIp', 'parse', 'getQueryMethod'];
             $this->server = $this->getMock('\TravelMediaGroup\GeoIP\Server', $methods, [$adapter]);
         }
+
         return $this->server;
     }
 
@@ -41,6 +42,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
             $db = 'db/GeoLite2-City.mmdb';
             $this->adapter = new GeoIP\Adapter(new Reader($db));
         }
+
         return $this->adapter;
     }
 
@@ -52,6 +54,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     {
         $data = $this->getFixtureData();
         $data['query']['queryMethod'] = $queryMethod;
+
         return json_encode($data, JSON_PRETTY_PRINT);
     }
 
@@ -62,6 +65,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     {
         $fixture = 'tests/fixture.json';
         $data = json_decode(file_get_contents($fixture), true);
+        
         return $data;
     }
 }

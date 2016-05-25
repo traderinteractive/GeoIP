@@ -35,7 +35,9 @@ class Adapter
         if (!$this->isValidIp($ip)) {
             throw new \Exception('invalid or no ip address given');
         }
+
         $record = $this->getReader()->city($ip);
+
         $data = [];
         $data['continentName'] = $record->continent->name;
         $data['countryIsoCode'] = $record->country->isoCode;
@@ -49,6 +51,7 @@ class Adapter
         $data['longitude'] = $record->location->longitude;
         $data['timeZone'] = $record->location->timeZone;
         $data['query']['ip'] = $ip;
+
         return $data;
     }
 

@@ -20,12 +20,14 @@ class AdapterTest extends TestCase
     public function testIsValidIpWithValidIp()
     {
         $ip = '8.8.8.8';
+
         $this->assertTrue($this->getAdapter()->isValidIp($ip));
     }
 
     public function testIsValidIpWithInvalidIp()
     {
         $ip = '1234567890';
+
         $this->assertFalse($this->getAdapter()->isValidIp($ip));
     }
 
@@ -34,6 +36,7 @@ class AdapterTest extends TestCase
         $ip = '8.8.8.8';
         $expectedValue = $this->getFixtureData();
         $result = $this->getAdapter()->findByIp($ip);
+
         $this->assertSame($expectedValue, $result);
     }
 
@@ -43,6 +46,7 @@ class AdapterTest extends TestCase
     public function testFindByIpWithInvalidIp()
     {
         $ip = '1234567890';
+        
         $this->getAdapter()->findByIp($ip);
     }
 }

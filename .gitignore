@@ -3,3 +3,4 @@
 /vendor/
 /reports/
 *.swp
+.idea

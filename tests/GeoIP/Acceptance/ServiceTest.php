@@ -20,17 +20,23 @@ class ServiceTest extends TestCase
     public function testRunWithValidIp($queryMethod)
     {
         ob_start();
+
         $this->getServer()
             ->expects($this->any())
             ->method('getIp')
             ->will($this->returnValue('8.8.8.8'));
+
         $this->getServer()
             ->expects($this->any())
             ->method('getQueryMethod')
             ->will($this->returnValue($queryMethod));
+
         $this->getServer()->run();
+
         $output = ob_get_clean();
+
         $this->assertSame($this->getFixtureServerResponse($queryMethod), $output);
+
         $expectedHeaders = ['Content-Type: application/json'];
         $this->assertSame($expectedHeaders, $this->getServer()->getHeaders());
     }
@@ -41,22 +47,28 @@ class ServiceTest extends TestCase
     public function testRunWithInvalidIp()
     {
         ob_start();
+        
         $this->getServer()
             ->expects($this->any())
             ->method('getIp')
             ->will($this->returnValue('1234567890'));
+
         $this->getServer()
             ->expects($this->any())
             ->method('getQueryMethod')
             ->will($this->returnValue('get'));
+
         $this->getServer()->run();
+
         $output = ob_get_clean();
+
         $error = [
             'error' => true,
             'errorDetail' => 'invalid or no ip address given'
         ];
         $expectedOutput = json_encode($error, JSON_PRETTY_PRINT);
         $this->assertSame($expectedOutput, $output);
+
         $expectedHeaders = ['Content-Type: application/json', 'HTTP/1.0 400 Bad Request'];
         $this->assertSame($expectedHeaders, $this->getServer()->getHeaders());
     }

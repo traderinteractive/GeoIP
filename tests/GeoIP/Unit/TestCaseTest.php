@@ -25,6 +25,7 @@ class TestCaseTest extends TestCase
     public function testFixtureServerResponse()
     {
         $response = json_decode($this->getFixtureServerResponse('get'));
+        
         $this->assertSame($response->query->queryMethod, 'get');
     }
 }
