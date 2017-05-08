@@ -10,7 +10,7 @@ GeoIP uses GeoLite2 data created by MaxMind, available [here](http://www.maxmind
 ## Requirements
 * **[Composer](https://getcomposer.org)**
 * **cURL**
-* **PHP 5.6+**
+* **PHP 7.0+**
 
 ### Optional
 * **make** (for easier maintenance)
