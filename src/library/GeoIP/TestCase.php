@@ -11,7 +11,7 @@ namespace TravelMediaGroup\GeoIP;
 use \TravelMediaGroup\GeoIP;
 use \GeoIp2\Database\Reader;
 
-class TestCase extends \PHPUnit_Framework_TestCase
+class TestCase extends \PHPUnit\Framework\TestCase
 {
     /** @var \PHPUnit_Framework_MockObject_MockObject */
     protected $server;
@@ -27,7 +27,10 @@ class TestCase extends \PHPUnit_Framework_TestCase
         if (!$this->server) {
             $adapter = $this->getAdapter();
             $methods = ['getIp', 'parse', 'getQueryMethod'];
-            $this->server = $this->getMock('\TravelMediaGroup\GeoIP\Server', $methods, [$adapter]);
+            $this->server = $this->getMockBuilder('\TravelMediaGroup\GeoIP\Server')
+                ->setMethods($methods)
+                ->setConstructorArgs([$adapter])
+                ->getMock();
         }
 
         return $this->server;
@@ -65,7 +68,7 @@ class TestCase extends \PHPUnit_Framework_TestCase
     {
         $fixture = 'tests/fixture.json';
         $data = json_decode(file_get_contents($fixture), true);
-        
+
         return $data;
     }
 }
