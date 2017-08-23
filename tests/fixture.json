@@ -2,14 +2,14 @@
     "continentName": "North America",
     "countryIsoCode": "US",
     "countryName": "United States",
-    "mostSpecificSubdivisionIsoCode": "CA",
-    "mostSpecificSubdivisionName": "California",
-    "cityName": "Mountain View",
-    "postalCode": "94035",
-    "metroCode": 807,
-    "latitude": 37.386,
-    "longitude": -122.0838,
-    "timeZone": "America\/Los_Angeles",
+    "mostSpecificSubdivisionIsoCode": null,
+    "mostSpecificSubdivisionName": null,
+    "cityName": null,
+    "postalCode": null,
+    "metroCode": null,
+    "latitude": 37.751,
+    "longitude": -97.822,
+    "timeZone": null,
     "query": {
         "ip": "8.8.8.8"
     }
