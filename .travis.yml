@@ -4,7 +4,7 @@ php:
     - 7.1
 install:
     - composer self-update && composer --version
-    - composer install --dev
+    - composer install
 script:
     - vendor/bin/phpunit --verbose --coverage-clover=coverage.clover
     - vendor/bin/phpcs --standard=PSR2 --extensions=php src tests
