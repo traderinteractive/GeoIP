@@ -1,12 +1,13 @@
 # Installing the Service
 
 ## Downloading the code
-Installation and setup is painless. Run the following:
+
+Installation and setup is painless.
+
 ```
-git clone git@github.dominionenterprises.com:justin-reherman/GeoIP.git
-cd GeoIP
-composer install
+composer create-project dominionenterprises/geoip
 ```
+
 ## Configuring Apache
 You can use the [example.conf](example.conf) file to configure an Apache server.
 
